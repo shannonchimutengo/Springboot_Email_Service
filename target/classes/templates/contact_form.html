@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap - Prebuilt Layout</title>
+
+    <!-- Bootstrap -->
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+<!--   <link th:href="@{/css/bootstrap-utilities.css}" rel="stylesheet">-->
+    <link th:href="@{/css/main.css}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+
+    <![endif]-->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Contact Form</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <ul class="navbar-nav">
+                 <li class="nav-item">
+                    <a class="nav-link active" aria-current="page"   th:href="@{/contact}"  >Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</head>
+<body>
+<br><br>
+<div class="content">
+<div class="card border-primary mb-3" style="max-width: 500px">
+    <div class="card-header text-center">Contact us </div>
+    <div class="card-body text-primary">
+        <h5 class="card-title text-center">Contact </h5>
+        <form th:action="@{/sendmail}" method="post" enctype="multipart/form-data">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon">Full Name</span>
+            </div>
+            <input type="text" name="fullname" required class="form-control"  placeholder="Username" aria-label="Full Name" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-add">E-mail</span>
+            </div>
+            <input type="text" name="email"class="form-control" placeholder="E-mail" aria-label="Username" aria-describedby="basic-addon1" required>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-don">Subject</span>
+            </div>
+            <input type="text" name="subject" class="form-control" placeholder="Subject" aria-label="Subject" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group">
+            <span class="input-group-text">Message</span>
+            <textarea class="form-control" name="content" aria-label="Content" placeholder="Good day..." required></textarea>
+
+        </div>
+            <div class="input-group">
+                <span class="input-group-text">File</span>
+                <input type="file" name="attachment" class="form-control">
+
+            </div>
+
+<br>
+        <button type="submit" class="btn btn-primary  align-center">Send Email</button>
+        </form>
+        </div>
+
+    </div>
+</div>
+
+<script th:src="@{/css/bootstrap.js}"></script>
+
+
+
+
+</body>
+</html>
